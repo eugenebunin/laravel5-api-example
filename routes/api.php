@@ -13,13 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 // For web test purpose
 Auth::routes();
 
+// Register
 Route::post('/auth/register', 'Api\Auth\RegisterController@register');
 
 // Cabinet group
