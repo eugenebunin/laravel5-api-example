@@ -17,6 +17,7 @@ class UpdateRequest extends FormRequest
             'name' => 'required|max:255',
             'email' => 'sometimes|required|email|max:255|unique:users,email,'.$this->user()->id,
             'password' => 'required|min:6|confirmed',
+            'phone' => 'max:128'
         ];
     }
 }
