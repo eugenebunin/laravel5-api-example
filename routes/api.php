@@ -21,3 +21,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Auth::routes();
 
 Route::post('/auth/register', 'Api\Auth\RegisterController@register');
+
+// Cabinet group
+Route::group(['middleware' => 'auth:api'], function() {
+    Route::get('/me', 'Api\Me\ProfileController@show');
+    Route::put('/me', 'Api\Me\ProfileController@update');
+});
