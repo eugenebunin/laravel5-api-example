@@ -13,10 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-
-// For web test purpose
-Auth::routes();
-
 // Register
 Route::post('/auth/register', 'Api\Auth\RegisterController@register');
 
