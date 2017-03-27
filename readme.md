@@ -1,12 +1,12 @@
-### Installation
+## Installation
 
       1. composer install
       2. php artisan migrate
       3. php artisan db:seed
 
-### Usage
+## Usage
 
-## Register
+### Register
 
       POST /api/auth/register HTTP/1.1
       Host: {{HOST}}
@@ -21,7 +21,7 @@
       	"client_secret": "stz1CjgQBbMTGD9kLy2d0N1a2WJEJuN8sJiw4Wi3"
       }
 
-## Authentication
+### Authentication
 
       POST /oauth/token HTTP/1.1
       Host: {{HOST}}
@@ -36,7 +36,7 @@
       "client_secret": "stz1CjgQBbMTGD9kLy2d0N1a2WJEJuN8sJiw4Wi3"
       }
 
-## Show profile
+### Show profile
 
       GET /api/me HTTP/1.1
       Host: {{HOST}}
@@ -44,7 +44,7 @@
       Content-Type: application/json
       Authorization: Bearer {{TOKEN}}
 
-## Update profile
+### Update profile
 
       PUT /api/me HTTP/1.1
       Host: {{HOST}}
