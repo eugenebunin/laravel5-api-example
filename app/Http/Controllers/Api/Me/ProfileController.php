@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Http\Requests\Me\UpdateRequest;
+use Illuminate\Support\Arr;
 
 class ProfileController extends Controller
 {
@@ -17,7 +18,13 @@ class ProfileController extends Controller
 
     public function update(UpdateRequest $request)
     {
-        $request->user()->update($request->all());
+        $user = $request->user();
+
+        $input = $request->all();
+
+        $password = Arr::get($input, 'password') ? bcrypt($input['password']) : $user->password;
+
+        $request->user()->update(array_merge($input, ['password' => $password]));
         return $request->user();
     }
 }
